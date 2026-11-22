@@ -1,0 +1,2 @@
+aiohttp==3.14.5
+bumble[android]==0.0.236

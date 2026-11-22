@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trainer Simulator</title>
+  <link rel="stylesheet" href="/assets/panel.css">
+  <script type="module" src="/assets/panel.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Trainer Simulator</h1>
+      <p>Control the two Bluetooth peripherals used by TV Trainer.</p>
+    </header>
+    <p id="service-error" class="notice" role="alert" hidden></p>
+    <section id="trainer" aria-labelledby="trainer-title">
+      <div class="identity">
+        <h2 id="trainer-title">Sim Trainer</h2>
+        <p class="status" role="status">Loading…</p>
+      </div>
+      <fieldset disabled>
+        <legend class="visually-hidden">Trainer controls</legend>
+        <label class="power"><input type="checkbox" role="switch" aria-label="Trainer power"> Power</label>
+        <div class="measurement">
+          <label for="cadence">Cadence</label>
+          <output for="cadence" aria-live="off">85 rpm</output>
+          <input id="cadence" type="range" min="0" max="150" step="1" value="85" aria-valuetext="85 rpm">
+        </div>
+        <label class="frequency">Notification frequency <select aria-label="Trainer notification frequency"></select></label>
+      </fieldset>
+      <dl class="telemetry">
+        <div><dt>Reported power</dt><dd data-metric="watts">—</dd></div>
+        <div><dt>Accepted load</dt><dd data-metric="target">—</dd></div>
+        <div><dt>Send rate</dt><dd data-metric="actual_rate">0.00 Hz</dd></div>
+        <div><dt>Notifications sent</dt><dd data-metric="sent_count">0</dd></div>
+      </dl>
+      <p class="notice device-error" role="alert" hidden></p>
+    </section>
+    <section id="hrm" aria-labelledby="hrm-title">
+      <div class="identity">
+        <h2 id="hrm-title">Sim HRM</h2>
+        <p class="status" role="status">Loading…</p>
+      </div>
+      <fieldset disabled>
+        <legend class="visually-hidden">Heart-rate monitor controls</legend>
+        <label class="power"><input type="checkbox" role="switch" aria-label="Heart-rate monitor power"> Power</label>
+        <div class="measurement">
+          <label for="bpm">Heart rate</label>
+          <output for="bpm" aria-live="off">140 bpm</output>
+          <input id="bpm" type="range" min="30" max="240" step="1" value="140" aria-valuetext="140 bpm">
+        </div>
+        <label class="frequency">Notification frequency <select aria-label="Heart-rate notification frequency"></select></label>
+      </fieldset>
+      <dl class="telemetry">
+        <div><dt>Send rate</dt><dd data-metric="actual_rate">0.00 Hz</dd></div>
+        <div><dt>Notifications sent</dt><dd data-metric="sent_count">0</dd></div>
+      </dl>
+      <p class="notice device-error" role="alert" hidden></p>
+    </section>
+  </main>
+</body>
+</html>

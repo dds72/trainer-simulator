@@ -1,0 +1,75 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  background: #edf1f3;
+  color: #162b33;
+  accent-color: #006b61;
+  --muted: #4b5e65;
+  --line: #c9d5da;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 64rem; margin: auto; padding: 3rem 1.5rem; }
+header { margin-bottom: 2rem; }
+h1, h2, p, dl, dd { margin: 0; }
+h1 { font-size: 2rem; letter-spacing: -.03em; }
+header p { margin-top: .45rem; color: var(--muted); }
+section {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: .875rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.identity { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1rem; }
+h2 { font-size: 1.25rem; }
+.status { color: var(--muted); display: flex; align-items: center; gap: .45rem; font-size: .9rem; }
+.status::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: #677c84; }
+.status[data-state="Sending"]::before, .status[data-state="Connected"]::before { background: #007568; }
+.status[data-state="Advertising"]::before { background: #966000; }
+fieldset {
+  display: grid;
+  grid-template-columns: auto minmax(8rem, 1fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+  border: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 1.2rem 0 1rem;
+}
+.power { display: flex; align-items: center; gap: .4rem; min-height: 2.75rem; }
+.power input { width: 1.2rem; height: 1.2rem; margin: 0; }
+.measurement {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0 .5rem;
+  min-width: 0;
+}
+.measurement input { grid-column: 1 / -1; width: 100%; height: 2rem; margin: 0; }
+.frequency { display: grid; gap: .3rem; }
+select { font: inherit; min-height: 2.5rem; padding: .25rem .5rem; border: 1px solid #8498a1; border-radius: .35rem; background: #fff; color: inherit; }
+:focus-visible { outline: 2px solid #006b61; outline-offset: 3px; }
+input:enabled, select:enabled { cursor: pointer; }
+fieldset:disabled { opacity: .55; }
+.telemetry {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .6rem 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: .9rem;
+  font-variant-numeric: tabular-nums;
+}
+dt { color: var(--muted); font-size: .84rem; }
+dd { font-weight: 650; margin-top: .2rem; overflow-wrap: anywhere; }
+output { font-variant-numeric: tabular-nums; font-weight: 650; }
+.notice { margin: .75rem 0; color: #922e20; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+@media (max-width: 39rem) {
+  main { padding: 1.75rem 1rem; }
+  section { padding: 1rem; }
+  fieldset { grid-template-columns: 1fr; gap: .65rem; }
+  .telemetry { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
